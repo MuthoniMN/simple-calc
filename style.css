@@ -1,7 +1,14 @@
-body{
+body, button{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 32px;
     text-align: center;
+    background: honeydew;
+}
+
+button{
+    font-size: 18px;
+    border-radius: 8px;
+    padding: 6px ;
 }
 
 table{
