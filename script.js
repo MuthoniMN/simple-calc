@@ -14,7 +14,8 @@ btns.forEach((btn) => btn.addEventListener('click', () =>{
         let finalStr = document.querySelector('#input').innerHTML .slice(0, userInput.length - 1)
         document.querySelector('#input').innerHTML  = finalStr
     }else if(val === '='){
-        document.querySelector('#input').innerHTML  += val + calculate(userInput)
+        localStorage.setItem(userInput, calculate(userInput))
+        document.querySelector('#input').innerHTML  = calculate(userInput)
     }else{
         document.querySelector('#input').innerHTML  += val 
     }
@@ -43,4 +44,21 @@ function calculate(string) {
 
 }
 
-console.log(calculate('3*8'))
+document.querySelector('button').addEventListener('click', showHistory)
+
+function showHistory() {
+
+    if(!document.querySelector('table').innerHTML){
+
+        document.querySelector('table').innerHTML =  `<tr> <th>Calculation</th><th>Answer</th></tr>`
+        
+        for (let i = 0; i < localStorage.length; i++) {
+            let key = localStorage.key(i)
+            
+            document.querySelector('table').innerHTML += `<tr>
+            <td>${key}</td>
+            <td>${localStorage.getItem(key)}</td>
+            </tr>`
+        }
+    }
+}
