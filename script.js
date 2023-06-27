@@ -3,10 +3,8 @@ const btns = document.querySelectorAll('p')
 btns.forEach((btn) => btn.addEventListener('click', () =>{ 
     if(!btn.id){
     let val = btn.innerText
-    console.log(val)
 
     let userInput = document.querySelector('#input').innerHTML 
-    console.log(userInput);
 
     if(val === 'AC' ){
         document.querySelector('#input').innerHTML  = ''
